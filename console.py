@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """defines a command line interpreter"""
 import cmd
-import models.base_model
+from models.base_model import BaseModel
 from models import storage
 from models.user import User
 from models.state import State
@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
         "User",
         "State",
         "City",
-        "Place"
+        "Place",
         "Amenity",
         "Review"
     }
@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             print(eval(arg)().id)
-            strorage.save()
+            storage.save()
 
     def do_show(self, arg):
         """ prints the string representation of an instance
